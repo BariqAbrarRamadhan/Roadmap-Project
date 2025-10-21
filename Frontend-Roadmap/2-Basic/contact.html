@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Get in touch with me for collaborations, project inquiries, or general questions about web development.">
+    <meta name="keywords" content="contact, hire frontend developer, web development services, collaboration">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Contact - Your Name">
+    <meta property="og:description" content="Contact me for web development projects, collaborations, or questions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourwebsite.com/contact.html">
+    <meta property="og:image" content="https://www.yourwebsite.com/images/contact-og.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <title>Contact - Your Name</title>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div>
+            <a href="index.html">
+                <span>■</span>
+                <span>your name</span>
+            </a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h1>Get In Touch</h1>
+            <p>Have a project in mind or want to collaborate? Feel free to reach out!</p>
+        </section>
+        
+        <!-- Contact Form Section -->
+        <section>
+            <h2>Contact Form</h2>
+            
+            <form action="#" method="POST">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    
+                    <div>
+                        <label for="name">Full Name <abbr title="required">*</abbr></label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Enter your full name"
+                            required
+                            minlength="2"
+                            maxlength="100"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="email">Email Address <abbr title="required">*</abbr></label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="your.email@example.com"
+                            required
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="phone">Phone Number</label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            placeholder="+1 (234) 567-8900"
+                            pattern="[0-9+\-\(\)\s]+"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="company">Company/Organization</label>
+                        <input 
+                            type="text" 
+                            id="company" 
+                            name="company" 
+                            placeholder="Your company name"
+                        >
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Your Inquiry</legend>
+                    
+                    <div>
+                        <label for="subject">Subject <abbr title="required">*</abbr></label>
+                        <input 
+                            type="text" 
+                            id="subject" 
+                            name="subject" 
+                            placeholder="Brief subject of your message"
+                            required
+                            minlength="5"
+                            maxlength="200"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="inquiry-type">Inquiry Type <abbr title="required">*</abbr></label>
+                        <select id="inquiry-type" name="inquiry-type" required>
+                            <option value="">-- Select an option --</option>
+                            <option value="project">Project Inquiry</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="job">Job Opportunity</option>
+                            <option value="question">General Question</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="budget">Project Budget (if applicable)</label>
+                        <select id="budget" name="budget">
+                            <option value="">-- Select a range --</option>
+                            <option value="under-1000">Under $1,000</option>
+                            <option value="1000-5000">$1,000 - $5,000</option>
+                            <option value="5000-10000">$5,000 - $10,000</option>
+                            <option value="10000-plus">$10,000+</option>
+                            <option value="not-sure">Not Sure</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="message">Message <abbr title="required">*</abbr></label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="8"
+                            placeholder="Tell me about your project, question, or inquiry..."
+                            required
+                            minlength="20"
+                            maxlength="2000"
+                        ></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="timeline">Expected Timeline</label>
+                        <input 
+                            type="text" 
+                            id="timeline" 
+                            name="timeline" 
+                            placeholder="e.g., ASAP, 1-2 months, flexible"
+                        >
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Additional Options</legend>
+                    
+                    <div>
+                        <label>
+                            <input 
+                                type="checkbox" 
+                                name="newsletter" 
+                                value="yes"
+                            >
+                            Subscribe to newsletter for web development tips and updates
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label>
+                            <input 
+                                type="checkbox" 
+                                name="copy" 
+                                value="yes"
+                                checked
+                            >
+                            Send me a copy of this message
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label for="attachment">Attach File (optional)</label>
+                        <input 
+                            type="file" 
+                            id="attachment" 
+                            name="attachment"
+                            accept=".pdf,.doc,.docx,.txt"
+                        >
+                        <small>Accepted formats: PDF, DOC, DOCX, TXT (Max 5MB)</small>
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>How did you find me?</legend>
+                    
+                    <div>
+                        <label>
+                            <input 
+                                type="radio" 
+                                name="referral" 
+                                value="search"
+                            >
+                            Search Engine (Google, Bing, etc.)
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label>
+                            <input 
+                                type="radio" 
+                                name="referral" 
+                                value="social"
+                            >
+                            Social Media
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label>
+                            <input 
+                                type="radio" 
+                                name="referral" 
+                                value="referral"
+                            >
+                            Referral from someone
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label>
+                            <input 
+                                type="radio" 
+                                name="referral" 
+                                value="github"
+                            >
+                            GitHub
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label>
+                            <input 
+                                type="radio" 
+                                name="referral" 
+                                value="other"
+                            >
+                            Other
+                        </label>
+                    </div>
+                </fieldset>
+                
+                <div>
+                    <button type="submit">Send Message</button>
+                    <button type="reset">Clear Form</button>
+                </div>
+            </form>
+        </section>
+        
+        <!-- Contact Information Section -->
+        <section>
+            <h2>Other Ways to Connect</h2>
+            
+            <article>
+                <h3>Email</h3>
+                <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            </article>
+            
+            <article>
+                <h3>Phone</h3>
+                <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            </article>
+            
+            <article>
+                <h3>Location</h3>
+                <address>
+                    San Francisco, CA<br>
+                    United States
+                </address>
+            </article>
+            
+            <article>
+                <h3>Social Media</h3>
+                <ul>
+                    <li><a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                    <li><a href="https://dev.to/yourusername" target="_blank" rel="noopener noreferrer">Dev.to</a></li>
+                </ul>
+            </article>
+        </section>
+        
+        <!-- Business Hours Section -->
+        <section>
+            <h2>Availability</h2>
+            <table>
+                <caption>Business Hours (Pacific Time)</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Day</th>
+                        <th scope="col">Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday - Friday</td>
+                        <td>9:00 AM - 6:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>10:00 AM - 2:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>Closed</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Note:</strong> I typically respond to inquiries within 24-48 hours during business days.</p>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; all rights reserved 2025</p>
+    </footer>
+</body>
+</html>
