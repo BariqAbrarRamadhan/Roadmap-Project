@@ -1,0 +1,380 @@
+/* =============================================
+   RESET & BASE STYLES
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =============================================
+   CSS VARIABLES
+   ============================================= */
+
+:root {
+    /* Colors */
+    --bg-body: #f5f5f5;
+    --bg-card: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --border-color: #e0e0e0;
+    --timeline-line: #d0d0d0;
+    --timeline-marker: #1a1a1a;
+    --button-bg: #1a1a1a;
+    --button-text: #ffffff;
+    --button-hover: #333333;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    
+    /* Font Sizes */
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 2rem;
+    
+    /* Font Weights */
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+/* =============================================
+   BODY & TYPOGRAPHY
+   ============================================= */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-body);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+}
+
+/* =============================================
+   CONTAINER
+   ============================================= */
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* =============================================
+   CHANGELOG CARD
+   ============================================= */
+
+.changelog-card {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* =============================================
+   HEADER SECTION
+   ============================================= */
+
+.changelog-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.changelog-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-normal);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: -0.02em;
+}
+
+.changelog-subtitle {
+    font-size: var(--font-size-base);
+    color: var(--text-light);
+    font-weight: var(--font-normal);
+}
+
+/* =============================================
+   TIMELINE SECTION
+   ============================================= */
+
+.changelog-timeline {
+    position: relative;
+    padding: var(--spacing-lg) 0;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Timeline Vertical Line */
+.changelog-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--timeline-line);
+    transform: translateX(-50%);
+}
+
+/* =============================================
+   TIMELINE ITEMS
+   ============================================= */
+
+.timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline Date (Left Side) */
+.timeline-date {
+    text-align: right;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    font-weight: var(--font-normal);
+    padding-right: var(--spacing-sm);
+}
+
+/* Timeline Marker (Center) */
+.timeline-marker {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    background-color: var(--timeline-marker);
+    border-radius: 50%;
+    border: 3px solid var(--bg-card);
+    box-shadow: 0 0 0 2px var(--timeline-line);
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+/* Timeline Content (Right Side) */
+.timeline-content {
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+    font-weight: var(--font-normal);
+    padding-left: var(--spacing-sm);
+}
+
+/* =============================================
+   FOOTER SECTION
+   ============================================= */
+
+.changelog-footer {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+.btn-view-all {
+    display: inline-block;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-medium);
+    transition: background-color var(--transition-normal), transform var(--transition-fast);
+    cursor: pointer;
+}
+
+.btn-view-all:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.btn-view-all:active {
+    transform: translateY(0);
+}
+
+/* =============================================
+   RESPONSIVE DESIGN - TABLET
+   ============================================= */
+
+@media (max-width: 768px) {
+    body {
+        padding: var(--spacing-md);
+    }
+    
+    .changelog-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .changelog-title {
+        font-size: 1.75rem;
+    }
+    
+    .changelog-subtitle {
+        font-size: var(--font-size-sm);
+    }
+    
+    .timeline-item {
+        gap: var(--spacing-sm);
+    }
+    
+    .timeline-date {
+        font-size: 0.8125rem;
+    }
+    
+    .timeline-content {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* =============================================
+   RESPONSIVE DESIGN - MOBILE
+   ============================================= */
+
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm);
+        align-items: flex-start;
+        padding-top: var(--spacing-lg);
+    }
+    
+    .changelog-card {
+        padding: var(--spacing-md);
+        border-radius: var(--radius-lg);
+    }
+    
+    .changelog-header {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .changelog-title {
+        font-size: 1.5rem;
+    }
+    
+    .changelog-subtitle {
+        font-size: 0.8125rem;
+    }
+    
+    /* Change timeline layout to vertical stacked */
+    .changelog-timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        gap: 0;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .timeline-marker {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        margin-right: var(--spacing-md);
+        align-self: start;
+        margin-top: 4px;
+    }
+    
+    .timeline-date {
+        grid-column: 2;
+        grid-row: 1;
+        text-align: left;
+        padding-right: 0;
+        font-size: 0.75rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .timeline-content {
+        grid-column: 2;
+        grid-row: 2;
+        padding-left: 0;
+        font-size: var(--font-size-sm);
+    }
+    
+    .btn-view-all {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* =============================================
+   HOVER EFFECTS
+   ============================================= */
+
+@media (hover: hover) {
+    .timeline-item {
+        transition: transform var(--transition-fast);
+    }
+    
+    .timeline-item:hover {
+        transform: translateX(4px);
+    }
+    
+    .timeline-item:hover .timeline-marker {
+        background-color: var(--button-hover);
+        transform: scale(1.2);
+        transition: all var(--transition-fast);
+    }
+}
+
+/* =============================================
+   ACCESSIBILITY
+   ============================================= */
+
+.btn-view-all:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 4px;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =============================================
+   PRINT STYLES
+   ============================================= */
+
+@media print {
+    body {
+        background-color: white;
+    }
+    
+    .changelog-card {
+        border: 1px solid #000;
+        box-shadow: none;
+    }
+    
+    .btn-view-all {
+        display: none;
+    }
+}
