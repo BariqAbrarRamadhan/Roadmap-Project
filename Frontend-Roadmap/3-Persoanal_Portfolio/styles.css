@@ -1,0 +1,756 @@
+/* =============================================
+   CSS RESET & BASE STYLES
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =============================================
+   CSS VARIABLES FOR THEMING
+   ============================================= */
+
+:root {
+    /* Light Mode Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-accent: #e8e8e8;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --border-color: #dddddd;
+    --accent-color: #0066cc;
+    --accent-hover: #0052a3;
+    --card-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    
+    /* Typography */
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-heading: 'Georgia', serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    
+    /* Container Width */
+    --container-max-width: 1200px;
+}
+
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --bg-accent: #3a3a3a;
+        --text-primary: #e0e0e0;
+        --text-secondary: #b0b0b0;
+        --text-light: #808080;
+        --border-color: #404040;
+        --accent-color: #3399ff;
+        --accent-hover: #66b3ff;
+        --card-bg: #252525;
+        --shadow: rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Dark mode class for manual toggle */
+body.dark-mode {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-accent: #3a3a3a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-light: #808080;
+    --border-color: #404040;
+    --accent-color: #3399ff;
+    --accent-hover: #66b3ff;
+    --card-bg: #252525;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* =============================================
+   BASE TYPOGRAPHY & BODY
+   ============================================= */
+
+body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.3;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+ul {
+    list-style-position: inside;
+}
+
+/* =============================================
+   HEADER & NAVIGATION
+   ============================================= */
+
+header {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+header > div:first-child {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Logo Styles */
+header > div:first-child > a {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+header > div:first-child > a span:first-child {
+    font-size: 1.5rem;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    gap: var(--spacing-md);
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    padding: var(--spacing-xs) 0;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    header > div:first-child {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav {
+        width: 100%;
+        margin-top: var(--spacing-sm);
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        width: 100%;
+    }
+}
+
+/* =============================================
+   MAIN CONTENT CONTAINER
+   ============================================= */
+
+main {
+    flex: 1;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+    width: 100%;
+}
+
+section {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* =============================================
+   HERO SECTION (Homepage)
+   ============================================= */
+
+main > section:first-child {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+main > section:first-child h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+main > section:first-child p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+/* =============================================
+   THREE-COLUMN GRID LAYOUT (Homepage)
+   ============================================= */
+
+section > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* For specific three-column layout on homepage */
+main > section:nth-child(2) > div {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Article Cards */
+article {
+    background-color: var(--card-bg);
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px var(--shadow);
+}
+
+article h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--border-color);
+}
+
+article h3 {
+    font-size: 1.2rem;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+article p {
+    margin-bottom: var(--spacing-sm);
+}
+
+article ul {
+    margin-left: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+article ul li {
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-secondary);
+}
+
+article a {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    font-weight: 500;
+}
+
+/* Work Experience & Education specific styles */
+article div {
+    margin-bottom: var(--spacing-md);
+}
+
+article div:last-child {
+    margin-bottom: 0;
+}
+
+/* =============================================
+   REVIEWS SECTION (Testimonials)
+   ============================================= */
+
+section:has(blockquote) h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+section:has(blockquote) > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+blockquote {
+    background-color: var(--card-bg);
+    padding: var(--spacing-md);
+    border-left: 4px solid var(--accent-color);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 8px var(--shadow);
+    font-style: italic;
+}
+
+blockquote p {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+blockquote footer {
+    font-style: normal;
+    margin-top: var(--spacing-md);
+}
+
+blockquote cite {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-style: normal;
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+blockquote footer p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* =============================================
+   PROJECTS PAGE
+   ============================================= */
+
+section > article {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* =============================================
+   ARTICLES PAGE
+   ============================================= */
+
+article time {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+article span {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* =============================================
+   CONTACT FORM
+   ============================================= */
+
+form {
+    background-color: var(--card-bg);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 8px var(--shadow);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+legend {
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0 var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+form div {
+    margin-bottom: var(--spacing-md);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Checkbox and Radio Styles */
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: var(--spacing-xs);
+    cursor: pointer;
+}
+
+label:has(input[type="checkbox"]),
+label:has(input[type="radio"]) {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* Buttons */
+button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"] {
+    background-color: var(--accent-color);
+    color: white;
+    margin-right: var(--spacing-sm);
+}
+
+button[type="submit"]:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+button[type="reset"] {
+    background-color: var(--bg-accent);
+    color: var(--text-primary);
+}
+
+button[type="reset"]:hover {
+    background-color: var(--border-color);
+}
+
+small {
+    display: block;
+    margin-top: var(--spacing-xs);
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+abbr {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+/* =============================================
+   TABLES
+   ============================================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-md) 0;
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+caption {
+    caption-side: top;
+    padding: var(--spacing-sm);
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: left;
+    color: var(--text-primary);
+}
+
+thead {
+    background-color: var(--bg-accent);
+}
+
+th {
+    padding: var(--spacing-sm);
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+td {
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+tbody tr:hover {
+    background-color: var(--bg-secondary);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+
+footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+    margin-top: auto;
+}
+
+footer p {
+    margin: var(--spacing-xs) 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* =============================================
+   RESPONSIVE DESIGN - MOBILE
+   ============================================= */
+
+@media (max-width: 768px) {
+    /* Typography adjustments */
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    main > section:first-child h1 {
+        font-size: 2rem;
+    }
+    
+    /* Spacing adjustments */
+    main {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+    
+    section {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    /* Grid to single column */
+    section > div {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Form adjustments */
+    form {
+        padding: var(--spacing-md);
+    }
+    
+    fieldset {
+        padding: var(--spacing-sm);
+    }
+    
+    /* Button stacking */
+    form > div:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    button {
+        width: 100%;
+        margin-right: 0 !important;
+    }
+    
+    /* Table responsive */
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: var(--spacing-xs);
+    }
+}
+
+/* =============================================
+   RESPONSIVE DESIGN - TABLET
+   ============================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    main > section:nth-child(2) > div {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =============================================
+   RESPONSIVE DESIGN - LARGE DESKTOP
+   ============================================= */
+
+@media (min-width: 1400px) {
+    :root {
+        --container-max-width: 1400px;
+    }
+}
+
+/* =============================================
+   UTILITY CLASSES
+   ============================================= */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* =============================================
+   ACCESSIBILITY
+   ============================================= */
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-to-main {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-color);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-to-main:focus {
+    top: 0;
+}
+
+/* =============================================
+   PRINT STYLES
+   ============================================= */
+
+@media print {
+    header nav,
+    footer {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+    
+    article {
+        page-break-inside: avoid;
+    }
+}
